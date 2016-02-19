@@ -3,7 +3,11 @@
 var BeepBoop = require(__dirname + '/lib/beepboop.js')
 
 var config = {debug: true}
-var beepboop = BeepBoop.init(config)
+var beepboop = BeepBoop.start(config)
+
+beepboop.on('open', function () {
+  console.log('connected to resource server')
+})
 
 beepboop.on('message.add_resource', function (msg) {
   console.log('bot added to a team: ' + JSON.stringify(msg))

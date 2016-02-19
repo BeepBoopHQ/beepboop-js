@@ -3,6 +3,7 @@ var WebSocket = require('ws')
 var assert = require('assert')
 var sinon = require('sinon')
 var Resourcer = require(__dirname + '/../lib/resourcer.js')
+var retry = require(__dirname + '/../lib/retry.js')
 
 describe('Resourcer', function () {
   var socket
@@ -14,7 +15,7 @@ describe('Resourcer', function () {
     socket.send = function () {}
     sinon.stub(WebSocket, 'connect').returns(socket)
 
-    resourcer = new Resourcer.Resourcer()
+    resourcer = new Resourcer()
     resourcer.connect(socket)
     called = false
   })
@@ -29,19 +30,17 @@ describe('Resourcer', function () {
         called = true
         assert.equal(err, 'error')
       })
-      sinon.stub(resourcer, 'retry')
 
       socket.emit('error', 'error')
       assert.equal(called, true)
     })
 
     it('handles open event', function () {
-      resourcer.on('open', function (data) {
+      resourcer.on('open', function () {
         called = true
-        assert.equal(data, 'hello')
       })
 
-      socket.emit('open', 'hello')
+      socket.emit('open')
       assert.equal(called, true)
     })
 
@@ -50,7 +49,6 @@ describe('Resourcer', function () {
         called = true
         assert.equal(reason, 'reason')
       })
-      sinon.stub(resourcer, 'retry')
 
       socket.emit('close', 'reason')
       assert.equal(called, true)
