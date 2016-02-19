@@ -24,6 +24,7 @@
   "license": "ISC",
   "dependencies": {
     "back": "^1.0.1",
+    "deap": "^1.0.0",
     "eventemitter2": "^0.4.14",
     "https": "^1.0.0",
     "loglevel": "^1.4.0",
