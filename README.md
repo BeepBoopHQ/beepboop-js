@@ -1,10 +1,10 @@
 # WIP - Not ready for use.
 
-## beepboop-js allows bot developers to efficiently run multiple teams from a single bot.
+## The beepboop bot management node module
 
-Events emitted from beepboop enables you to know when a team owner adds, updates, or removes your bot from their team.
+beepboop-js allows bot developers to run on the [Beep Boop HQ](http://beepboophq.com) bot hosing platform and support multiple teams from a single bot process. Simply require 'beepboop' in your bot project and listen for events indicating a user has requested your bot to be added, updated, or removed from their team.
 
-If you are using botkit, we recommend using beepboop-botkit (it wraps this module) vs. the beepboop module directly.
+If you are using [Botkit](http://github.com/howdyai/botkit), we recommend using [beepboop-botkit](http://github.com/BeepBoopHQ/beepboop-botkit) as spawning and connecting to teams is handled for you.
 
 ## Install
 `npm install --save beepboop`
@@ -14,6 +14,7 @@ If you are using botkit, we recommend using beepboop-botkit (it wraps this modul
 
   var beepboop = BeepBoop.start()
 
+  // listen for events
   beepboop.on('open', function () {
     console.log('connected to resource server')
   })
@@ -23,6 +24,7 @@ If you are using botkit, we recommend using beepboop-botkit (it wraps this modul
     // handle adding team to bot
   })
 
+see `bot.js` for an example.
 
 ## Module: beepboop
 
@@ -64,8 +66,6 @@ Is emitted when an add_resource message is received indicating a user has reques
 `function (message) { }`
 
 Is emitted when an update_resource message is received indicating a request to update the instance of the bot has been sent. The bot maker updating the bot, or a bot owner updating configuration are two cases that can trigger an update.
-
-`update_resource performs remove_resource & add_resource and those events are also emitted -- TODO: should they be suppresed in this case?`
 
 
 ### Event: 'message.remove_resource'
