@@ -2,7 +2,7 @@
 
 ## The beepboop bot management node module
 
-beepboop-js allows bot developers to run on the [Beep Boop HQ](http://beepboophq.com) bot hosing platform and support multiple teams from a single bot process. Simply require 'beepboop' in your bot project and listen for events indicating a user has requested your bot to be added, updated, or removed from their team.
+beepboop-js allows bot developers to run on the [Beep Boop HQ](http://beepboophq.com) bot hosting platform and support multiple teams from a single bot process. Simply require 'beepboop' in your bot project and listen for events indicating a user has requested your bot to be added, updated, or removed from their team.
 
 If you are using [Botkit](http://github.com/howdyai/botkit), we recommend using [beepboop-botkit](http://github.com/BeepBoopHQ/beepboop-botkit) as spawning and connecting to teams is handled for you.
 
