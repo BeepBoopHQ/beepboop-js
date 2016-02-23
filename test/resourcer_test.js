@@ -45,12 +45,13 @@ describe('Resourcer', function () {
     })
 
     it('handles close event', function () {
-      resourcer.on('close', function (reason) {
+      resourcer.on('close', function (code, message) {
         called = true
-        assert.equal(reason, 'reason')
+        assert.equal(code, 1000)
+        assert.equal(message, 'closed')
       })
 
-      socket.emit('close', 'reason')
+      socket.emit('close', 1000, 'closed')
       assert.equal(called, true)
     })
 
