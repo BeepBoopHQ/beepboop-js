@@ -57,7 +57,7 @@ describe('Resourcer', function () {
 
     describe('message events', function () {
       it('handles add_resource event', function () {
-        resourcer.on('message.add_resource', function (msg) {
+        resourcer.on('add_resource', function (msg) {
           called = true
           assert.deepEqual(msg, {'type': 'add_resource', 'ResourceID': '4zewnkfyldi'})
         })
@@ -67,7 +67,7 @@ describe('Resourcer', function () {
       })
 
       it('handles update_resource event', function () {
-        resourcer.on('message.update_resource', function (msg) {
+        resourcer.on('update_resource', function (msg) {
           called = true
           assert.deepEqual(msg, {'type': 'update_resource', 'ResourceID': '4zewnkfyldi-update'})
         })
@@ -77,7 +77,7 @@ describe('Resourcer', function () {
       })
 
       it('handles remove_resource event', function () {
-        resourcer.on('message.remove_resource', function (msg) {
+        resourcer.on('remove_resource', function (msg) {
           called = true
           assert.deepEqual(msg, {'type': 'remove_resource', 'ResourceID': '4zewnkfyldi-update'})
         })
@@ -87,7 +87,7 @@ describe('Resourcer', function () {
       })
 
       it('handles auth_result event', function () {
-        resourcer.on('message.auth_result', function (msg) {
+        resourcer.on('auth_result', function (msg) {
           called = true
           assert.deepEqual(msg, {'type': 'auth_result', 'ResourceID': '4zewnkfyldi-update', 'success': 'true'})
         })

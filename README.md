@@ -19,7 +19,7 @@ If you are using [Botkit](http://github.com/howdyai/botkit), we recommend using 
     console.log('connected to resource server')
   })
 
-  beepboop.on('message.add_resource', function (msg) {
+  beepboop.on('add_resource', function (msg) {
     console.log('received request to add bot to team')
     // handle adding team to bot
   })
@@ -55,20 +55,20 @@ Is emitted when the connection is closed. `code` is defined in the WebSocket spe
 
 The `close` event is also emitted when then underlying `net.Socket` closes the connection (`end` or `close`).
 
-### Event: 'message.add_resource'
+### Event: 'add_resource'
 
 `function (message) { }`
 
 Is emitted when an add_resource message is received indicating a user has requested an instance of the bot to be added to their team.
 
-### Event: 'message.update_resource'
+### Event: 'update_resource'
 
 `function (message) { }`
 
 Is emitted when an update_resource message is received indicating a request to update the instance of the bot has been sent. The bot maker updating the bot, or a bot owner updating configuration are two cases that can trigger an update.
 
 
-### Event: 'message.remove_resource'
+### Event: 'remove_resource'
 
 `function (message) { }`
 
