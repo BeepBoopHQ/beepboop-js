@@ -1,6 +1,6 @@
 'use strict'
 
-var BeepBoop = require('beepboop')
+var BeepBoop = require('./lib/beepboop')
 
 var config = {debug: true}
 var beepboop = BeepBoop.start(config)
