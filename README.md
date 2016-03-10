@@ -4,12 +4,25 @@
 
 beepboop-js allows bot developers to run on the [Beep Boop HQ](http://beepboophq.com) bot hosting platform and support multiple teams from a single bot process. Simply require 'beepboop' in your bot project and listen for events indicating a user has requested your bot to be added, updated, or removed from their team.
 
-If you are using [Botkit](http://github.com/howdyai/botkit), we recommend using [beepboop-botkit](http://github.com/BeepBoopHQ/beepboop-botkit) as spawning and connecting to teams is handled for you.
+If you are using [Botkit](http://github.com/howdyai/botkit), we recommend using [beepboop-botkit](http://github.com/BeepBoopHQ/beepboop-botkit) so spawning and connecting to teams is handled for you.
 
 ## Install
 `npm install --save beepboop`
 
 ## Use
+### Testing your bot locally
+*TODO: add steps to test with dev-resourcer*
+
+At a minimum, the client needs the following environment variables set which can be obtained from the development area of the http://beebboophq.com site.
+
+  * `BEEPBOOP_RESOURCER` -- url to the Beep Boop Server
+  * `BEEPBOOP_TOKEN`
+  * `BEEPBOOP_ID`
+
+In production, these values will be set automatically.
+
+Connect to Beep Boop and listen for events like so:
+
   var BeepBoop = require('beepboop')
 
   var beepboop = BeepBoop.start()
@@ -24,7 +37,7 @@ If you are using [Botkit](http://github.com/howdyai/botkit), we recommend using 
     // handle adding team to bot
   })
 
-see `bot.js` for an example.
+see `examples/simple.js` for more.
 
 ## Module: beepboop
 
