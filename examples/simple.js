@@ -1,12 +1,22 @@
 'use strict'
 
-var BeepBoop = require('./lib/beepboop')
+var BeepBoop = require('../lib/beepboop')
+// var winston = require('winston')
+// var logger = new (winston.Logger)({
+//   transports: [new (winston.transports.Console)({ level: 'debug' })]
+// })
 
-var config = {debug: true}
+// optional config including ability to pass a logger
+var config = {
+  debug: true
+  // logger: logger
+}
+
 var beepboop = BeepBoop.start(config)
 
 beepboop.on('open', function () {
   console.log('connected to resource server')
+  // logger.info('connected to resource server')
 })
 
 beepboop.on('add_resource', function (msg) {
@@ -15,7 +25,7 @@ beepboop.on('add_resource', function (msg) {
 })
 
 beepboop.on('update_resource', function (msg) {
-  console.log('a team\'s bot was updated: ' + JSON.stringify(msg))
+  console.info('a team\'s bot was updated: ' + JSON.stringify(msg))
   // handle updating existing team's to bot (could be update to bot version or a config change)
 })
 
