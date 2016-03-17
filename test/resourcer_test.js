@@ -3,7 +3,6 @@ var WebSocket = require('ws')
 var assert = require('assert')
 var sinon = require('sinon')
 var Resourcer = require(__dirname + '/../lib/resourcer.js')
-var retry = require(__dirname + '/../lib/retry.js')
 
 describe('Resourcer', function () {
   var socket

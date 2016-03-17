@@ -4,7 +4,7 @@
   "description": "beepboop eases hosting a botkit based bot on the beepboop hosting platform.",
   "main": "lib/beepboop.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test"
   },
   "homepage": "http://beepboophq.com",
   "bugs": {
@@ -29,5 +29,9 @@
     "https": "^1.0.0",
     "loglevel": "^1.4.0",
     "ws": "^1.0.1"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5",
+    "sinon": "^1.17.3"
   }
 }
