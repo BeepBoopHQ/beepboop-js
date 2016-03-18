@@ -1,6 +1,6 @@
 {
   "name": "beepboop",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "beepboop eases hosting a botkit based bot on the beepboop hosting platform.",
   "main": "lib/beepboop.js",
   "scripts": {
