@@ -1,0 +1,37 @@
+{
+  "name": "beepboop",
+  "version": "0.0.9",
+  "description": "beepboop eases hosting a botkit based bot on the beepboop hosting platform.",
+  "main": "lib/beepboop.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "homepage": "http://beepboophq.com",
+  "bugs": {
+    "url": "https://github.com/BeepBoopHQ/beepboop-js/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BeepBoopHQ/beepboop-js"
+  },
+  "keywords": [
+    "beepboop",
+    "botkit",
+    "slack",
+    "bot"
+  ],
+  "author": "Chris Skudlarczyk <chris.skudlarczyk@robotsandpencils.com> (https://beepboophq.com)",
+  "license": "ISC",
+  "dependencies": {
+    "back": "^1.0.1",
+    "deap": "^1.0.0",
+    "eventemitter2": "^0.4.14",
+    "https": "^1.0.0",
+    "loglevel": "^1.4.0",
+    "ws": "^1.0.1"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5",
+    "sinon": "^1.17.3"
+  }
+}
