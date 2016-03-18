@@ -2,7 +2,7 @@ var events = require('events')
 var WebSocket = require('ws')
 var assert = require('assert')
 var sinon = require('sinon')
-var Resourcer = require(__dirname + '/../lib/resourcer.js')
+var Resourcer = require('../lib/resourcer.js')
 
 describe('Resourcer', function () {
   var socket

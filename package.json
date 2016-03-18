@@ -2,9 +2,9 @@
   "name": "beepboop",
   "version": "0.0.10",
   "description": "beepboop eases hosting a botkit based bot on the beepboop hosting platform.",
-  "main": "lib/beepboop.js",
+  "main": "index.js",
   "scripts": {
-    "test": "mocha test"
+    "test": "standard && mocha test"
   },
   "homepage": "http://beepboophq.com",
   "bugs": {
@@ -32,6 +32,17 @@
   },
   "devDependencies": {
     "mocha": "^2.4.5",
-    "sinon": "^1.17.3"
+    "sinon": "^1.17.3",
+    "standard": "^6.0.8"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "it",
+      "before",
+      "after",
+      "beforeEach",
+      "afterEach"
+    ]
   }
 }
