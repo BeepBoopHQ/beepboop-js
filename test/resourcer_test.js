@@ -1,5 +1,4 @@
 var events = require('events')
-var WebSocket = require('ws')
 var assert = require('assert')
 var sinon = require('sinon')
 var Resourcer = require('../lib/resourcer.js')
@@ -10,17 +9,18 @@ describe('Resourcer', function () {
   var called
 
   beforeEach(function () {
+    resourcer = new Resourcer()
+
     socket = new events.EventEmitter()
     socket.send = function () {}
-    sinon.stub(WebSocket, 'connect').returns(socket)
+    sinon.stub(resourcer, 'newWebSocket').returns(socket)
 
-    resourcer = new Resourcer()
     resourcer.connect(socket)
     called = false
   })
 
   afterEach(function () {
-    WebSocket.connect.restore()
+    resourcer.newWebSocket.restore()
   })
 
   describe('web socket connection event handling', function () {
