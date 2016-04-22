@@ -143,7 +143,7 @@ An `update_resource` message looks as follows, very similar to the `add_resource
 * Is emitted when an `remove_resource` message is received, indicating a bot owner has removed a bot from their team.  You should disconnect from the Slack RTM API on behalf of the requested team.
 
 ```javascript
-beepboop.on('update_resource', function (message) { 
+beepboop.on('remove_resource', function (message) { 
   console.log('Team Removed: ', message)
   // You'll want to disconnect from the Slack RTM connection you made, and perform any cleanup needed
 })
