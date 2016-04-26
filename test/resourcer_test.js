@@ -94,6 +94,30 @@ describe('Resourcer', function () {
         socket.emit('message', '{"type": "auth_result", "ResourceID":"4zewnkfyldi-update", "success": "true"}')
         assert.equal(called, true)
       })
+
+      it('handles a bad message', function () {
+        resourcer.on('error', function () {
+          called = true
+        })
+
+        socket.emit('message', '{"type": ""auth_result", "ResourceID":"4zewnkfyldi-update", "success": "true"}')
+        assert.equal(called, true)
+      })
+
+      it('does not emit an error if listener throws', function () {
+        var spy = sinon.spy(resourcer, 'on')
+        resourcer.on('auth_result', function () {
+          throw new Error('kaboom')
+        })
+
+        try {
+          socket.emit('message', '{"type": "auth_result", "ResourceID":"4zewnkfyldi-update", "success": "true"}')
+        } catch (e) {
+          assert.equal(e.message, 'kaboom')
+        }
+
+        assert.equal(spy.calledWith('error'), false)
+      })
     })
   })
 })
