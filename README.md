@@ -12,7 +12,7 @@ If you are using [Botkit](http://github.com/howdyai/botkit), we recommend using 
 ### Testing your bot locally
 **TODO: Add link to multi-team article**
 
-At a minimum, the client needs the following environment variables set which can be obtained from the development area of the http://beebboophq.com site.
+At a minimum, the client needs the following environment variables set which can be obtained from the development area of the http://beepboophq.com site.
 
   * `BEEPBOOP_RESOURCER` -- url to the Beep Boop Server
   * `BEEPBOOP_TOKEN` -- authentication toke for Beep Boop Server
