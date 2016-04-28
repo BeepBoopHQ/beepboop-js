@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/BeepBoopHQ/beepboop-js.svg)](https://travis-ci.org/BeepBoopHQ/beepboop-js)
+
 ## The beepboop bot multi-team management node module
 
 `beepboop` allows bot developers to run on the [Beep Boop HQ](https://beepboophq.com) bot hosting platform and support multiple teams from a single bot process. Simply require `beepboop` in your bot project and listen for events indicating a user has requested your bot to be added, updated, or removed from their team.
