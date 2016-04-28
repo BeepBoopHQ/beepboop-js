@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/BeepBoopHQ/beepboop-js.svg)](https://travis-ci.org/BeepBoopHQ/beepboop-js)
+
 ## The beepboop bot multi-team management node module
 
 `beepboop` allows bot developers to run on the [Beep Boop HQ](https://beepboophq.com) bot hosting platform and support multiple teams from a single bot process. Simply require `beepboop` in your bot project and listen for events indicating a user has requested your bot to be added, updated, or removed from their team.
@@ -53,7 +55,7 @@ Module has exported function `start`
 * Emitted when the connection is established.
 
 ```javascript
-beepboop.on('open', function () { 
+beepboop.on('open', function () {
   console.log('connection to Beep Boop server opened')
 })
 ```
@@ -63,7 +65,7 @@ beepboop.on('open', function () {
 * Errors with the connection and underlying WebSocket are emitted here.
 
 ```javascript
-beepboop.on('error', function (error) { 
+beepboop.on('error', function (error) {
   console.log('Error from Beep Boop connection: ', err)
 })
 ```
@@ -73,7 +75,7 @@ beepboop.on('error', function (error) {
 * Is emitted when the WebSocket connection is closed.
 
 ```javascript
-beepboop.on('close', function (code, message) { 
+beepboop.on('close', function (code, message) {
   console.log('Connection to Beep Boop was closed')
 }
 ```
@@ -83,7 +85,7 @@ beepboop.on('close', function (code, message) {
 Is emitted when an `add_resource` message is received, indicating a user has requested an instance of the bot to be added to their team.
 
 ```javascript
-beepboop.on('add_resource', function (message) { 
+beepboop.on('add_resource', function (message) {
   console.log('Team added: ', message)
   // Create a connection to the Slack RTM on behalf of the team
 })
@@ -102,7 +104,13 @@ An `add_resource` `message` looks as follows:
   "resource": {
     // Token you should use to connect to the Slack RTM API
     "SlackBotAccessToken": "xoxb-xxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxx",
+    "SlackBotUserID": "XXXXXXXXX",
+    "SlackBotUserName": "name-of-bot-user",
+    // Regular access token - will contain additional scopes requested
+    "SlackAccessToken": "XXXXXXXXX",
+    "SlackTeamName": "Name of Team",
     "SlackTeamID": "XXXXXXXXX",
+    "SlackUserID": "XXXXXXXXX",
     "CUSTOM_CONFIG": "Value for CUSTOM_CONFIG"
   }
 }
@@ -116,7 +124,7 @@ For keeping track of multiple team's RTM socket connections, you would want to c
 * Is emitted when an `update_resource` message is received, indicating a request to update the instance of the bot has been sent. The bot maker updating the bot, or a bot owner updating configuration are two cases that can trigger an update.
 
 ```javascript
-beepboop.on('update_resource', function (message) { 
+beepboop.on('update_resource', function (message) {
   console.log('Team Updated: ', message)
   // may need to update local config for team or re-establish the Slack RTM connection
 })
@@ -131,8 +139,15 @@ An `update_resource` message looks as follows, very similar to the `add_resource
   "msgID": "2ca94d34-ef04-4167-8363-c778d129b8f1",
   "resourceID": "75f9c7334807421bb914c1cff8d4486c",
   "resource": {
+    // Token you should use to connect to the Slack RTM API
     "SlackBotAccessToken": "xoxb-xxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxx",
+    "SlackBotUserID": "XXXXXXXXX",
+    "SlackBotUserName": "name-of-bot-user",
+    // Regular access token - will contain additional scopes requested
+    "SlackAccessToken": "XXXXXXXXX",
+    "SlackTeamName": "Name of Team",
     "SlackTeamID": "XXXXXXXXX",
+    "SlackUserID": "XXXXXXXXX",
     "CUSTOM_CONFIG": "Updated Value for Config"
   }
 }
@@ -143,7 +158,7 @@ An `update_resource` message looks as follows, very similar to the `add_resource
 * Is emitted when an `remove_resource` message is received, indicating a bot owner has removed a bot from their team.  You should disconnect from the Slack RTM API on behalf of the requested team.
 
 ```javascript
-beepboop.on('remove_resource', function (message) { 
+beepboop.on('remove_resource', function (message) {
   console.log('Team Removed: ', message)
   // You'll want to disconnect from the Slack RTM connection you made, and perform any cleanup needed
 })
@@ -159,4 +174,3 @@ A `remove_resource` message looks as follows:
   "resourceID": "75f9c7334807421bb914c1cff8d4486c"
 }
 ```
-
