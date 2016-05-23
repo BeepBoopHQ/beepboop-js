@@ -77,7 +77,7 @@ beepboop.on('error', function (error) {
 ```javascript
 beepboop.on('close', function (code, message) {
   console.log('Connection to Beep Boop was closed')
-}
+})
 ```
 
 ### Event: `add_resource`
