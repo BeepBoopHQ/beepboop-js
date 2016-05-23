@@ -108,6 +108,9 @@ An `add_resource` `message` looks as follows:
     "SlackBotUserName": "name-of-bot-user",
     // Regular access token - will contain additional scopes requested
     "SlackAccessToken": "XXXXXXXXX",
+    "SlackIncomingWebhookConfigURL": "https://<slack-team-name>.slack.com/services/XXXXXXXXX",
+    "SlackIncomingWebhookChannel": "#channel-name",
+    "SlackIncomingWebhookConfigURL": "https://hooks.slack.com/services/XXXXXXXXX/XXXXXXXXX/XXXXXXXXX",
     "SlackTeamName": "Name of Team",
     "SlackTeamID": "XXXXXXXXX",
     "SlackUserID": "XXXXXXXXX",
